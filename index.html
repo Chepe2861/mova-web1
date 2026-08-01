@@ -1,4 +1,694 @@
-<!-- 3. TVS SPORT 110 FI -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mova | Alquiler de motos con opción de compra</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ffcc00;
+            --secondary-color: #111111;
+            --accent-color: #ff3b30;
+            --bg-light: #f8f9fa;
+            --text-dark: #222222;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-color);
+            gap: 1rem;
+        }
+
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .header-tagline {
+            display: flex;
+            flex-direction: column;
+            border-left: 2px solid rgba(255, 204, 0, 0.4);
+            padding-left: 1rem;
+        }
+
+        .header-tagline .tag-main {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-tagline .tag-sub {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #dcdcdc;
+        }
+
+        .btn-cta-header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: 0.3s;
+            white-space: nowrap;
+            box-shadow: 0 2px 10px rgba(255, 204, 0, 0.3);
+        }
+
+        .btn-cta-header:hover {
+            background-color: #e6b800;
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .header-tagline {
+                display: none;
+            }
+            header {
+                padding: 0.7rem 1rem;
+            }
+        }
+
+        .top-mun-bar {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 0.9rem 1rem;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .top-mun-bar p {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .mun-container-top {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mun-tag-top {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 204, 0, 0.4);
+        }
+
+        .hero-modern {
+            background: linear-gradient(135deg, rgba(0,0,0,0.90) 0%, rgba(20,20,20,0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 3.5rem 1.2rem;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 204, 0, 0.15);
+            color: var(--primary-color);
+            border: 1px solid rgba(255, 204, 0, 0.4);
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .hero-modern .hero-main-title {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #b0b0b0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-modern h1 {
+            font-size: 1.7rem;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-modern h1 .highlight-pain {
+            color: var(--accent-color);
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 4px;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: #dcdcdc;
+            max-width: 700px;
+            margin: 0 auto 1.5rem auto;
+            line-height: 1.6;
+        }
+
+        .hero-subtitle strong {
+            color: var(--primary-color);
+        }
+
+        .hero-benefits-mini {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #eaeaea;
+        }
+
+        .hero-benefits-mini i {
+            color: var(--primary-color);
+        }
+
+        .btn-main-pulse {
+            background-color: #25d366;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.05rem;
+            font-weight: 800;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            width: 100%;
+            max-width: 420px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-main-pulse:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.7);
+            background-color: #20ba5a;
+        }
+
+        section {
+            padding: 2.5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .ventajas-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2rem auto;
+        }
+
+        .ventaja-card {
+            background: white;
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+            border: 1px solid #eaeaea;
+        }
+
+        .ventaja-card i {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .ventaja-card h4 {
+            font-size: 1.1rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .ventaja-card p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .banner-liberacion {
+            background-color: #111111;
+            color: white;
+            border-radius: 14px;
+            padding: 2rem 1.5rem;
+            margin: 2rem auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border: 2px solid rgba(255, 204, 0, 0.3);
+        }
+
+        .banner-liberacion h3 {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin-bottom: 1.2rem;
+        }
+
+        .banner-liberacion ul {
+            list-style: none;
+        }
+
+        .banner-liberacion li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 1.1rem;
+            font-size: 0.95rem;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        .banner-liberacion li i {
+            color: var(--primary-color);
+            margin-top: 4px;
+            font-size: 1rem;
+        }
+
+        .banner-liberacion strong {
+            color: white;
+        }
+
+        .catalogo-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .moto-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #eaeaea;
+            position: relative;
+        }
+
+        .badge-nueva {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 20px;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+
+        .moto-img-container {
+            background: radial-gradient(circle, #ffffff 50%, #f1f3f5 100%);
+            padding: 1.5rem 1rem 1rem 1rem;
+            text-align: center;
+        }
+
+        .moto-img {
+            max-width: 100%;
+            height: 140px;
+            object-fit: contain;
+        }
+
+        .moto-body {
+            padding: 1.25rem;
+            background: #fafafa;
+            border-top: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .moto-body h3 {
+            font-size: 1.2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        .plans-column-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 1.2rem;
+        }
+
+        .plan-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 9px 12px;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            font-size: 0.85rem;
+        }
+
+        .plan-row.featured {
+            background: #fffdf0;
+            border: 2px solid var(--primary-color);
+        }
+
+        .plan-name {
+            font-weight: 700;
+            color: #444;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plan-name span {
+            font-size: 0.7rem;
+            color: #777;
+            font-weight: 400;
+        }
+
+        .plan-price {
+            font-weight: 900;
+            color: var(--secondary-color);
+            font-size: 0.95rem;
+        }
+
+        .plan-row.featured .plan-price {
+            color: #008000;
+            font-size: 1.05rem;
+        }
+
+        .btn-select-moto {
+            display: block;
+            background-color: #25d366;
+            color: white;
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            box-shadow: 0 3px 8px rgba(37, 211, 102, 0.3);
+            margin-top: auto;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: #aaa;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            font-size: 0.85rem;
+            border-top: 1px solid #333;
+        }
+
+        @media (min-width: 768px) {
+            .ventajas-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 600px) {
+            .catalogo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .catalogo-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-brand">
+            <div class="logo">Mo<span>va</span></div>
+            <div class="header-tagline">
+                <span class="tag-main">Alquiler de motos con opción de compra</span>
+                <span class="tag-sub">Trabaja y quédate con tu moto</span>
+            </div>
+        </div>
+        <a href="https://wa.me/573044472101?text=Hola,%20estoy%20interesado%20en%20el%20alquiler%20con%20opción%20de%20compra%20de%20Mova." class="btn-cta-header" target="_blank">¡Postúlate!</a>
+    </header>
+
+    <div class="top-mun-bar">
+        <p><i class="fas fa-map-marker-alt"></i> Cobertura Exclusiva en el Oriente Antioqueño:</p>
+        <div class="mun-container-top">
+            <span class="mun-tag-top">El Santuario</span>
+            <span class="mun-tag-top">El Carmen de Viboral</span>
+            <span class="mun-tag-top">Granada</span>
+            <span class="mun-tag-top">Marinilla</span>
+            <span class="mun-tag-top">Rionegro</span>
+            <span class="mun-tag-top">El Peñol</span>
+            <span class="mun-tag-top">Cocorná</span>
+        </div>
+    </div>
+
+    <!-- Sección Hero -->
+    <section class="hero-modern">
+        <div class="hero-badge">
+            <i class="fas fa-bolt"></i> Sin cuota inicial • 100% Nuevos
+        </div>
+        
+        <div class="hero-main-title">
+            MOVA | Libertad laboral sin enredos
+        </div>
+        
+        <h1>
+            ¿Trabajar todo el día para <span class="highlight-pain">pagarle el alquiler a otro</span>?
+        </h1>
+        
+        <p class="hero-subtitle">
+            Es momento de cambiar las reglas del juego: pon tu esfuerzo a producir para ti, conecta tus apps y <strong>libera tu propia moto</strong> sin poner un peso de cuota inicial.
+        </p>
+
+        <div class="hero-benefits-mini">
+            <span><i class="fas fa-check-circle"></i> Ingresos diarios</span>
+            <span><i class="fas fa-check-circle"></i> Liquidación flexible</span>
+            <span><i class="fas fa-check-circle"></i> Tuya al terminar el plazo</span>
+        </div>
+
+        <a href="https://wa.me/573044472101?text=Hola,%20estoy%20cansado%20de%20alquilar%20y%20quiero%20mi%20moto%20propia%20con%20Mova." class="btn-main-pulse" target="_blank">
+            <i class="fab fa-whatsapp"></i> ¡Quiero dejar de alquilar y empezar!
+        </a>
+    </section>
+
+    <!-- Sección Informativa / Ventajas -->
+    <section>
+        <h2 class="section-title">Ventajas en Mova</h2>
+
+        <div class="ventajas-grid">
+            <div class="ventaja-card">
+                <i class="fas fa-motorcycle"></i>
+                <h4>Vehículo 100% Nuevo</h4>
+                <p>Estrenas un activo sin preocupaciones mecánicas y con todo el respaldo.</p>
+            </div>
+            <div class="ventaja-card">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Soporte y Operación</h4>
+                <p>Facilidades e infraestructura para que operes con total tranquilidad.</p>
+            </div>
+            <div class="ventaja-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Tus Apps en tu Celular</h4>
+                <p>Usa tu propio smartphone y conecta las aplicaciones de tu preferencia.</p>
+            </div>
+        </div>
+
+        <!-- Banner: ¿Cómo funciona la Liberación? -->
+        <div class="banner-liberacion">
+            <h3>¿Cómo funciona la Liberación?</h3>
+            <ul>
+                <li>
+                    <i class="fas fa-check-circle"></i> 
+                    <div><strong>Liquidación diaria flexible:</strong> Es un esquema cómodo diseñado para tu éxito diario. Al no existir la presión de un pago mensual fijo que asfixie tus finanzas, puedes cubrir una cuota ligera al cierre de tu jornada con lo que ya generaste, manteniendo la tranquilidad de ver ingresos frescos desde el primer día.</div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i> 
+                    <div><strong>Tú pones la meta (12, 18, 24, 30 o 36 meses):</strong> Tienes el control absoluto de tu ritmo. Elige el plazo que mejor se adapte a tu capacidad y ganas de trabajar, decidiendo si prefieres acelerar el paso para terminar pronto o avanzar de forma más moderada sin que el sistema te imponga cargas ajenas.</div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i> 
+                    <div><strong>Independencia:</strong> Tus ganancias dependen directamente de tu esfuerzo diario. Cada kilómetro recorrido y cada servicio realizado se convierte en un escalón más hacia tu propio patrimonio, asegurando que al finalizar el plazo la moto sea 100% tuya y pases a ser dueño de tu propio negocio.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Catálogo con Planes en Columnas Verticales -->
+    <section>
+        <h2 class="section-title">Planes y Valores por Vehículo</h2>
+        <p style="text-align: center; max-width: 800px; margin: -1.2rem auto 2rem auto; font-size: 0.95rem; color: #555; padding: 0 10px;">
+            Arrendamiento base por día: <strong>$20.000</strong>. Revisa cada plan en columna vertical y escoge el plazo que mejor se adapte a tu meta.
+        </p>
+
+        <div class="catalogo-grid">
+            
+            <!-- 1. TVS SPORT 100 KLS -->
+            <div class="moto-card">
+                <span class="badge-nueva">100% Nueva</span>
+                <div class="moto-img-container">
+                    <img src="Moto1.jpg" alt="TVS Sport 100 KLS" class="moto-img">
+                </div>
+                <div class="moto-body">
+                    <div>
+                        <h3>TVS SPORT 100 KLS</h3>
+                        <div class="plans-column-container">
+                            <div class="plan-row featured">
+                                <div class="plan-name">260 Días <span>(Meta 12 Meses)</span></div>
+                                <div class="plan-price">$45.200</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">450 Días <span>(Meta 18 Meses)</span></div>
+                                <div class="plan-price">$36.756</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">520 Días <span>(Meta 24 Meses)</span></div>
+                                <div class="plan-price">$35.200</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">650 Días <span>(Meta 30 Meses)</span></div>
+                                <div class="plan-price">$33.200</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">780 Días <span>(Meta 36 Meses)</span></div>
+                                <div class="plan-price">$31.867</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/573044472101?text=Hola,%20quiero%20elegir%20la%20TVS%20SPORT%20100%20KLS." class="btn-select-moto" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Elegir este Vehículo!
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. TVS SPORT 100 ELS -->
+            <div class="moto-card">
+                <span class="badge-nueva">100% Nueva</span>
+                <div class="moto-img-container">
+                    <img src="Moto2.jpg" alt="TVS Sport 100 ELS" class="moto-img">
+                </div>
+                <div class="moto-body">
+                    <div>
+                        <h3>TVS SPORT 100 ELS</h3>
+                        <div class="plans-column-container">
+                            <div class="plan-row featured">
+                                <div class="plan-name">260 Días <span>(Meta 12 Meses)</span></div>
+                                <div class="plan-price">$46.896</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">450 Días <span>(Meta 18 Meses)</span></div>
+                                <div class="plan-price">$37.883</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">520 Días <span>(Meta 24 Meses)</span></div>
+                                <div class="plan-price">$36.223</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">650 Días <span>(Meta 30 Meses)</span></div>
+                                <div class="plan-price">$34.088</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">780 Días <span>(Meta 36 Meses)</span></div>
+                                <div class="plan-price">$32.665</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/573044472101?text=Hola,%20quiero%20elegir%20la%20TVS%20SPORT%20100%20ELS." class="btn-select-moto" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Elegir este Vehículo!
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. TVS SPORT 110 FI -->
             <div class="moto-card">
                 <span class="badge-nueva">100% Nueva</span>
                 <div class="moto-img-container">
@@ -35,3 +725,90 @@
                     </a>
                 </div>
             </div>
+
+            <!-- 4. TVS MOTOCARRO KING DELUXE PLUS GS+ -->
+            <div class="moto-card">
+                <span class="badge-nueva">Motocarro</span>
+                <div class="moto-img-container">
+                    <img src="MotoCarro1.jpg" alt="TVS Motocarro King Deluxe Plus GS+" class="moto-img">
+                </div>
+                <div class="moto-body">
+                    <div>
+                        <h3>KING DELUXE PLUS GS+</h3>
+                        <div class="plans-column-container">
+                            <div class="plan-row featured">
+                                <div class="plan-name">260 Días <span>(Meta 12 Meses)</span></div>
+                                <div class="plan-price">$101.168</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">450 Días <span>(Meta 18 Meses)</span></div>
+                                <div class="plan-price">$73.969</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">520 Días <span>(Meta 24 Meses)</span></div>
+                                <div class="plan-price">$68.959</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">650 Días <span>(Meta 30 Meses)</span></div>
+                                <div class="plan-price">$62.517</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">780 Días <span>(Meta 36 Meses)</span></div>
+                                <div class="plan-price">$58.222</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/573044472101?text=Hola,%20quiero%20elegir%20el%20MOTOCARRO%20KING%20DELUXE%20PLUS%20GS+." class="btn-select-moto" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Elegir este Vehículo!
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. TVS MOTOCARRO KING DELUXE SPECIAL -->
+            <div class="moto-card">
+                <span class="badge-nueva">Especial</span>
+                <div class="moto-img-container">
+                    <img src="MotoCarro2.jpg" alt="TVS Motocarro Especial" class="moto-img">
+                </div>
+                <div class="moto-body">
+                    <div>
+                        <h3>KING DELUXE SPECIAL</h3>
+                        <div class="plans-column-container">
+                            <div class="plan-row featured">
+                                <div class="plan-name">260 Días <span>(Meta 12 Meses)</span></div>
+                                <div class="plan-price">$105.045</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">450 Días <span>(Meta 18 Meses)</span></div>
+                                <div class="plan-price">$76.763</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">520 Días <span>(Meta 24 Meses)</span></div>
+                                <div class="plan-price">$71.536</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">650 Días <span>(Meta 30 Meses)</span></div>
+                                <div class="plan-price">$64.842</div>
+                            </div>
+                            <div class="plan-row">
+                                <div class="plan-name">780 Días <span>(Meta 36 Meses)</span></div>
+                                <div class="plan-price">$60.384</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/573044472101?text=Hola,%20quiero%20elegir%20el%20MOTOCARRO%20KING%20DELUXE%20SPECIAL." class="btn-select-moto" target="_blank">
+                        <i class="fab fa-whatsapp"></i> ¡Elegir este Vehículo!
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mova - Todos los derechos reservados. Oriente Antioqueño, Colombia.</p>
+    </footer>
+
+</body>
+</html>
